@@ -1,0 +1,138 @@
+.landingBody{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: url("./assets/images/muchCoffee.jpg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Dancing Script', cursive;
+}
+
+.landingTextWhite{
+    position: absolute;
+    margin: auto;
+    background-color: black;
+    width: 300px;
+    height: min-content;
+    padding: 30px;
+    border: solid white 4px;
+    border-radius: 30px;
+    top: 0; left: 0; bottom: 0; right: 0;
+    color: white;
+    text-align: center;
+    overflow: hidden;  
+    animation: entrance 1.25s ease-in;
+}
+
+.landingTextWhiteText{
+    color: white;  /* Fallback: assume this color ON TOP of image */
+    background: linear-gradient(to right, white 40%, #804a00 45%, #693d00 50%, #804a00 55%, white 60%);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: backgroundGradinet 15s linear 1.25s infinite;
+}
+
+.clickMe{
+    position: relative;
+    border: none;
+    z-index: 2;
+    background-color: black;
+    color: white;
+    width: 150px;
+    margin: auto;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.clickMe::after{
+    z-index: -1;
+    position: absolute;
+    content: "";
+    top: -2px; left: -2px; bottom: -2px; right: -2px;
+    z-index: -2;
+    border: solid white 3px;
+    border-radius: 20px;
+}
+
+.clickMe::before{
+    z-index: -1;
+    position: absolute;
+    content: "";
+    top: -2px; left: -2px; bottom: -2px; right: -2px;
+    z-index: -2;
+    border: solid white 3px;
+    border-radius: 20px;
+    filter: blur(5px);
+    animation: filterGlow 2s linear infinite;
+}
+
+@keyframes filterGlow {
+    0%{
+        filter: blur(5px);
+        border-width: 7px;
+        top: -5px; left: -5px; bottom: -5px; right: -5px;
+    }
+    50%{
+        filter: blur(2px);
+        border-width: 3px;
+        top: -2px; left: -2px; bottom: -2px; right: -2px;
+    }
+    100%{
+        filter: blur(5px);
+        border-width: 7px;
+        top: -5px; left: -5px; bottom: -5px; right: -5px;
+    }
+}
+
+@keyframes backgroundGradinet{
+    0%{
+        background-position: 400%;   
+    }
+    100%{
+        background-position: 0%;   
+    }
+}
+
+@keyframes entrance {
+    0%{
+        width: 90%;
+        height: 600px;
+        opacity: 0;
+    }
+    100%{
+        width: 300px;
+        height: 400px;
+        opacity: 1;
+    }
+}
+
+.logo{
+    width: 200px;
+    height: 200px;
+}
+
+.desktopText{
+    display: block;
+}
+
+.mobileText{
+    display: none;
+}
+
+@media screen and (max-width: 450px) {
+    .logo{
+        width: 100px;
+        height: 100px;
+    }
+    .desktopText{
+        display: none;
+    }
+    .mobileText{
+        display: block;
+    }
+}
