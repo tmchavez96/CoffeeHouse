@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap");
+
+
+.homePageHeader{
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  box-shadow: 8px 8px 10px;
+  border: solid black 1px;
+}
+
+.hamburgerButton{
+  font-size: 50px;
+  margin: 20px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.mainNavBar{
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  justify-content: left;
+  background-color: #e8eaed;
+  border-top: solid black 4px;
+  border-bottom: solid black 4px;
+  z-index: 15;
+}
+
+.mainNavElm{
+  color: black;
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 25px;
+  z-index: 1;
+  transition: 0.8s;
+}
+
+.mainNavElmSelected{
+  position: relative;
+  color: black;
+  position: relative;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 25px;
+  z-index: 1;
+  transition: 0.8s;
+  overflow: hidden;
+}
+
+.mainNavElmSelected::before{
+  position: absolute;
+  content: "";
+  width: 100%;
+  top: 0%;
+  bottom: 0%;
+  left: 0;
+  background-image: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(235,99,99,1) 50%, rgba(244,49,49,1) 100%);
+  z-index: -1;
+  animation: risingGradient 1s;
+}
+
+@keyframes risingGradient {
+  0%{
+    top: 100%;
+  }
+  100%{
+    top: 0%;
+  }
+}
+
+.mainNavLink{
+  text-decoration: none;
+}
+
+.hoverText{
+  color: black;
+}
+
+.hoverText:hover{
+  color: var(--offsetText);
+}
+
+@media only screen and (max-width: 600px) {
+  .navContainer{
+    position: absolute;
+    top: 0px;
+    margin-bottom: 100px;
+  }
+  .mainNavBar{
+    display: flex;
+    justify-content: left;
+    flex-direction: column;;
+    background-color: #e8eaed;
+    border-top: solid black 4px;
+    border-bottom: solid black 4px;
+    z-index: 999;
+  }
+}
+
+.navContainer{
+  width: 100%;
+  height: 100px;
+}
+
+.menu{
+  transition: 0.5s;
+  position: relative;
+}
+
+.menu-primary-enter{
+  position: relative;
+  background-color: aqua;
+  margin-right: 100%;
+  overflow: hidden;
+}
+
+.menu-primary-enter-active{
+  background-color: aquamarine;
+  margin-right: 0%;
+}
+
+.menu-primary-exit{
+  background-color: blue;
+  margin-right: 0%;
+  overflow: hidden;
+}
+
+.menu-primary-exit-active{
+  background-color: chocolate;
+  margin-right: 100%;
+}
+
+

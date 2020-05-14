@@ -1,0 +1,100 @@
+
+.home-comp-covid{
+    position: relative;
+    background-image: url("../assets/images/openDuringCovid.png");
+    background-size: cover;
+    background-position: center;
+    min-width: 700px;
+    width: 100%;
+    height: 700px;
+    margin: auto;
+    border: solid black 4px;
+    border-radius: 10px;
+    z-index: -15;
+}
+
+.home-comp-covid-message{
+    color: black;
+    background-color: white;
+    position: absolute;
+    width: 50%;
+    padding: 20px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 25px;
+    top: 100px;
+    box-shadow: 5px 5px 5px black;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .home-comp-covid{
+
+        min-width: 340px;
+        height: 300px;
+    }
+
+    .home-comp-covid-message{
+        font-size: 18px;
+    }
+  }
+
+.home-comp-body{ 
+    font-family: 'Quicksand', sans-serif;
+}
+
+.home-comp-intro{
+    position: relative;
+    background-image: url("../assets/images/steamingCoffeeMug.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    width: 100%;
+    height: 500px;
+    color: white;
+    text-align: center;
+}
+
+.home-comp-header{
+    padding: 20px;
+}
+
+.home-comp-menu-link{
+    position: absolute;
+    background-color: white;
+    color: black;
+    left: 0;
+    right: 0;
+    width: 30%;
+    font-size: 20px;
+    padding: 5px;
+    bottom: 100px;
+    margin: auto;
+    border-radius: 20px;
+    border: solid black 2px;
+    cursor: pointer;
+    z-index: 10;
+    overflow: hidden;
+}
+
+.home-comp-menu-link::before{
+    position: absolute;
+    content: "";
+    background-color: lightcoral;
+    width: 100%;
+    height: 40px;
+    z-index: -1;
+    bottom: -40px;
+    left: 0;
+    transition: 0.8s;
+}
+
+.home-comp-menu-link:hover::before{
+    bottom: 0px;
+}
+
+.home-comp-menu-link-text{
+    text-decoration: none;
+}

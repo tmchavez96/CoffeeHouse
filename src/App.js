@@ -1,110 +1,86 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+
 import './App.css';
-import Landing from './LandingPage';
+import LandingPage from './LandingPage';
+import HomePage from './home'
+import { Spring, config } from 'react-spring/renderprops'
 
-// This site has 3 pages, all of which are rendered
-// dynamically in the browser (not server rendered).
-//
-// Although the page does not ever refresh, notice how
-// React Router keeps the URL up to date as you navigate
-// through the site. This preserves the browser history,
-// making sure things like the back button and bookmarks
-// work properly.
 
-function SiteHeader(){
-  return (
-    <div className="siteHeader">
-      <div className="subHead1">
-        <h1>
-          Welcome to
-        </h1>
-      </div>
-      <div className="subHead2">
-        <h1>
-          Bellaria Coffee House
-        </h1>
-      </div>
-    </div>
-  )
-}
+class MainPage extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      onLanding: true,
+    }
+  }
 
-function BasicExample() {
-  return (
-    <Router>
-      <SiteHeader/>
+  clickHandler() {
+    console.log("state is false")
+    this.setState({ onLanding: false })
+  }
 
-      <div>
-        <div className="mainNavBar">
-          <div className="mainNavElm">
-            <Link className="mainNavLink" to="/">Home</Link>
+  render() {
+    console.log("rendering..")
+    const pageNav = this.state.onLanding;
+    const alwaysBlue = true;
+    const gavinBelson = false;
+    if(pageNav === false){
+      return (
+        <div>
+          <Spring
+            config={{duration : 800}}
+            from={{ 
+              position: "absolute",
+              top: "0%",
+              bottom:"0%",
+              left: "0%",
+              right: "0%",
+              overflow: "hidden",
+              borderRadius: "0px",
+              }
+            }
+            to={{ top: "50%",
+            bottom:"50%",
+            left: "50%",
+            right: "50%",
+            borderRadius: "500px"
+             }}>
+            {props => 
+              <div style={props}>
+                <LandingPage onClick={()=>this.clickHandler()}
+                   value={false}
+                />
+              </div>
+            }
+          </Spring>
+  
+          < HomePage />
+        </div >
+      )
+    } else {
+      return (
+        <div>
+          <div style={{ 
+              position: "absolute",
+              top: 0,
+              bottom:"0%",
+              left: 0,
+              right: 0,
+              }}>
+            
+            <LandingPage  onClick={()=>this.clickHandler()}
+            value={true}
+            />
           </div>
-          <div className="mainNavElm">
-            <Link className="mainNavLink" to="/about">About</Link>
-          </div>
-          <div className="mainNavElm">
-            <Link className="mainNavLink" to="/dashboard">Dashboard</Link>
-          </div>  
-        </div>
-
-
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
+        </div >
+    )
+    }
+  }
 }
 
-// You can think of these components as "pages"
-// in your app.
-
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
-  );
-}
 function App() {
   return (
-    <Landing />
+    <MainPage />
   );
 }
 

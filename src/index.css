@@ -5,7 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #d2d4d6;
+  background-image: url("./assets/images/dot-grid.png");
+  background-repeat: repeat;
+
+  --offsetText : #961111;
 }
 
 code {
